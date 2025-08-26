@@ -1,0 +1,35 @@
+{
+  "name": "greenfield-budget-planner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yumejensen/greenfield-budget-planner.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yumejensen/greenfield-budget-planner/issues"
+  },
+  "homepage": "https://github.com/yumejensen/greenfield-budget-planner#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.18.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.3",
+    "@babel/preset-react": "^7.27.1",
+    "@eslint/js": "^9.34.0",
+    "eslint": "^9.34.0",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.3.0",
+    "webpack": "^5.101.3"
+  }
+}
