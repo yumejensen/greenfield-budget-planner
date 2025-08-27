@@ -20,13 +20,23 @@ app.use(bodyParser.json())
 // serve static files from client
 app.use(express.static(CLIENT))
 
-
-
 // ROUTING
 // router for signup
 app.use('/signup', Signup)
 
+// ---------------AUTH-----------------
+app.get('/', (req, res) => {
 
+  // serve landing page that has <a href> link for /auth/google
+
+});
+
+// protected route once logged in successfully
+app.get('/itineraries', (req, res) => {
+
+  // this will serve the itineraries page that shows all itineraries the user has
+  res.send('Itineraries will show here!');
+});
 
 const port = 3000;
 

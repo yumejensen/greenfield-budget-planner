@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const DATABASE = 'travel-planner';
 
 // SCHEMA IMPORTS
-const { userSchema, budgetSchema } = require('./Schemas')
+const { userSchema } = require('./Schemas/user')
+const { budgetSchema } = require('./Schemas/budget')
 
 mongoose.connect(`mongodb://localhost:27017/${DATABASE}`)
   .then(()=> {
@@ -20,12 +21,12 @@ const Budget = mongoose.model('Budget', budgetSchema);
 
 
 // TEST CREATE TO ADD USER
-const addUser = () => {
+// const addUser = () => {
 
-  User.create({username: 'arglebargle'})
-};
+//   User.create({username: 'arglebargle'})
+// };
 
-addUser();
+// addUser();
 
 module.exports = {
   User,
