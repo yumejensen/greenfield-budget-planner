@@ -1,17 +1,33 @@
 const mongoose = require('mongoose');
 
-const { userSchema } = require('./Schemas');
+const DATABASE = 'travel-planner';
 
-mongoose.connect('mongodb://localhost:3000', {
+// SCHEMA IMPORTS
+const { userSchema, budgetSchema } = require('./Schemas')
 
-}).then(()=> {
-  console.log('DB Connected');
-}).catch((err)=> {
-  console.error('DB NOT Connected', err);
-});
+mongoose.connect(`mongodb://localhost:27017/${DATABASE}`)
+  .then(()=> {
+    console.log(`${DATABASE} DB Connected`);
+  })
+  .catch((err)=> {
+    console.error(`${DATABASE} DB failed to connect:`, err);
+  });
 
+
+// MODEL CREATION
 const User = mongoose.model('User', userSchema);
+const Budget = mongoose.model('Budget', budgetSchema);
+
+
+// TEST CREATE TO ADD USER
+const addUser = () => {
+
+  User.create({username: 'arglebargle'})
+};
+
+addUser();
 
 module.exports = {
-  User
-}
+  User,
+  Budget
+};
