@@ -10,7 +10,7 @@ const { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET } = process.env;
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/itineraries",
+    callbackURL: "http://localhost:3000/google/callback",
     passReqToCallback: true
   },
   function(request, accessToken, refreshToken, profile, done) {

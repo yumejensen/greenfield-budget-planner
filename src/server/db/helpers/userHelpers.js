@@ -14,4 +14,4 @@ const findUser = (user) => {
     .limit(1);
 };
 
-// module.exports
+module.exports.findUser = findUser;

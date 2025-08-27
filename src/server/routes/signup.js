@@ -1,5 +1,5 @@
 const express = require('express')
-const { findUser } = require('./db helpers/userHelpers.js')
+const { findUser } = require('../db/helpers/userHelpers.js')
 
 const Signup = express.Router()
 
