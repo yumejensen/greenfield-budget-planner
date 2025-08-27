@@ -55,9 +55,14 @@ app.get('/auth/google',
 app.get('/google/callback',
   passport.authenticate('google', {
     successRedirect: '/itineraries',
-    failureRedirect: '/',
+    failureRedirect: '/auth/failure',
   })
 );
+
+// endpoint for authenticate failure redirect
+app.get('/auth/failure', (req, res) => {
+  res.send('Something went wrong...')
+})
 
 // protected route once logged in successfully
 app.get('/itineraries', (req, res) => {

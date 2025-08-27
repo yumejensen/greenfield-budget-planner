@@ -34,3 +34,14 @@ If running successfully, server console shows:
     db - contains: db helpers (functions that interact w/ db Models), Schemas, index.js(connects to mongoose)
     routes - contains all express routes
     index.js - initializes the express app and middleware
+
+
+# NOTES FROM 8-27 4:45pm #
+
+Continuing to set up passport, attempt to sign in is hitting the failure redirect
+
+changed so far to try and make passport work: 
+- User schema has email instead of googleId
+- changed Authorized redirect URI (in google cloud project credentials) to http://localhost:3000/google/callback
+- changed the findOrCreate function from passport docs -> findOneAndUpdate mongoose Model method - added then and catch blocks and are calling done()
+- NOTE: attempt to sign in is hitting the then block of findOneAndUpdate but the authentication is redirecting to '/auth/failure'
