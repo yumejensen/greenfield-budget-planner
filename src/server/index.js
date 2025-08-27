@@ -19,6 +19,7 @@ const app = express();
 // IMPORT ROUTES
 // signup route
 const { Signup } = require('./routes/signup');
+const { NoEmitOnErrorsPlugin } = require('webpack');
 
 
 // path to root client files
@@ -52,12 +53,29 @@ app.get('/auth/google',
 );
 
 // '/google/callback' is for redirecting to protected endpoint or rejecting
-app.get('/google/callback',
-  passport.authenticate('google', {
-    successRedirect: '/itineraries',
-    failureRedirect: '/auth/failure',
+// app.get('/google/callback',
+//   passport.authenticate('google', {
+//     successRedirect: '/itineraries',
+//     failureRedirect: '/auth/failure',
+//   })
+// );
+
+// attempt to make ^^^ into a promise
+app.get('/google/callback', (req, res) => {
+  return new Promise((resolve, reject) => {
+    passport.authenticate('google', {
+      successRedirect: '/itineraries',
+      failureRedirect: '/auth/failure',
+    }, (err, user) => {
+      if (err) {
+        reject(new Error('failed to redirect AUTH:', err))
+      } else if (!user) {
+        reject(new Error('user is not authenticated:', err))
+      }
+      resolve(user)
+    })(req, res)
   })
-);
+});
 
 // endpoint for authenticate failure redirect
 app.get('/auth/failure', (req, res) => {
