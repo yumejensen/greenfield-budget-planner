@@ -46,14 +46,16 @@ app.get('/', (req, res) => {
   // res.send();
 });
 
+// '/auth/google' is endpoint for google sign in 
 app.get('/auth/google',
   passport.authenticate('google', { scope: ['email', 'profile'] })
 );
 
-app.get('/google/callback', 
+// '/google/callback' is for redirecting to protected endpoint or rejecting
+app.get('/google/callback',
   passport.authenticate('google', {
     successRedirect: '/itineraries',
-    // failureRedirect: '/',
+    failureRedirect: '/',
   })
 );
 

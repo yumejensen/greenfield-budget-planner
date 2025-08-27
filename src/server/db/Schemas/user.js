@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const userSchema = new Schema({
 
-  googleId: String,
+  email: String,
   // itineraries : [{type: Schema.Types.ObjectId, ref: 'Itinerary'}]
 });
 

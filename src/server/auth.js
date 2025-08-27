@@ -1,7 +1,7 @@
 const passport = require('passport');
 const session = require('express-session');
 const GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
-const User = require('./db/index.js');
+const { User } = require('./db/index.js');
 
 require('dotenv').config();
 
@@ -14,9 +14,22 @@ passport.use(new GoogleStrategy({
     passReqToCallback: true
   },
   function(request, accessToken, refreshToken, profile, done) {
-    User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      return done(err, user);
-    });
+    // use findOneAndUpdate to initialize or create a user
+    // takes in: what you're looking for (profile id), what needs to be updated, options: different filters
+    User.findOneAndUpdate({ 
+      email: profile.email 
+    }, { 
+      email: profile.email 
+    }, { 
+      new: true, upsert: true 
+    })
+    .then(() => {
+      console.log('hello - this is the then block in findOneAndUpdate');
+      done()
+    })
+    .catch((err) => {
+      console.log('failed to find and update user PASSPORT:', err)
+    })
   }
 ));
 
