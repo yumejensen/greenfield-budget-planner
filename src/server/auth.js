@@ -23,12 +23,14 @@ passport.use(new GoogleStrategy({
     }, { 
       new: true, upsert: true 
     })
-    .then(() => {
+    .then((profile) => {
       console.log('hello - this is the then block in findOneAndUpdate');
-      done()
+      console.log('profile is', profile)
+      done(profile);
     })
     .catch((err) => {
       console.log('failed to find and update user PASSPORT:', err)
+      done(err, null)
     })
   }
 ));

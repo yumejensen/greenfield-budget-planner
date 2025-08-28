@@ -1,5 +1,8 @@
 const express = require('express');
+const session = require('express-session')
 const passport = require('passport');
+
+
 
 // requiring auth so that it is loaded with the server
 require('./auth');
@@ -9,6 +12,16 @@ const bodyParser = require('body-parser');
 
 // make express app
 const app = express();
+
+// add session middleware
+app.use(session({
+  resave: false,
+  secret: 'secretcalifragilistic',
+  saveUninitialized: false
+}))
+
+app.use(passport.initialize())
+app.use(passport.session())
 
 // IMPORT ROUTES
 // signup route
@@ -24,6 +37,7 @@ app.use(bodyParser.json());
 
 // serve static files from client
 app.use(express.static(CLIENT));
+
 
 // ROUTING
 
@@ -47,33 +61,33 @@ app.get('/auth/google',
 );
 
 // '/google/callback' is for redirecting to protected endpoint or rejecting
-// app.get('/auth/google/callback',
-//   passport.authenticate('google', {
-//     failureRedirect: '/auth/failure',
-//     successRedirect: '/itineraries',
-//   })
-// );
+app.get('/auth/google/callback',
+  passport.authenticate('google', {
+    failureRedirect: '/auth/failure',
+    successRedirect: '/itineraries',
+  })
+);
 
 // attempt to make ^^^ into a promise
-app.get('/auth/google/callback', (req, res) => {
-  return new Promise((resolve, reject) => {
-    passport.authenticate('google', {
-      failureRedirect: '/auth/failure',
-      successRedirect: '/itineraries',
-    }, (err, user) => {
-      // console.log(err, ' - error');
-      // console.log(user, ' - user');
-      if (err) {
-        reject(new Error('failed to redirect AUTH:', err))
-      } else if (!user) {
-        reject(new Error('user is not authenticated:', err))
-      }
-      resolve(() => {
-        res.redirect('/itineraries');
-      })
-    })(req, res)
-  })
-});
+// app.get('/auth/google/callback', (req, res) => {
+//   return new Promise((resolve, reject) => {
+//     passport.authenticate('google', {
+//       failureRedirect: '/auth/failure',
+//       successRedirect: '/itineraries',
+//     }, (err, user) => {
+//       // console.log(err, ' - error');
+//       // console.log(user, ' - user');
+//       if (err) {
+//         reject(new Error('failed to redirect AUTH:', err))
+//       } else if (!user) {
+//         reject(new Error('user is not authenticated:', err))
+//       }
+//       resolve(() => {
+//         res.redirect('/itineraries');
+//       })
+//     })(req, res)
+//   })
+// });
 
 // app.get('/auth/google/callback', async (req, res) => {
 
