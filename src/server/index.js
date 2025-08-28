@@ -2,15 +2,10 @@ const express = require('express');
 const session = require('express-session')
 const passport = require('passport');
 
-
-
-// requiring auth so that it is loaded with the server
-require('./auth');
-
 const path = require('path');
 const bodyParser = require('body-parser');
 
-// make express app
+// ----------EXPRESS APP--------------
 const app = express();
 
 // add session middleware
@@ -20,13 +15,24 @@ app.use(session({
   saveUninitialized: false
 }));
 
+// initialize passport
 app.use(passport.initialize())
 app.use(passport.session())
 
-// IMPORT ROUTES
+// requiring auth so that it is loaded with the server
+require('./auth');
+
+
+// ----------IMPORT ROUTES--------------
 // signup route
 const { Signup } = require('./routes/signup');
-const { NoEmitOnErrorsPlugin } = require('webpack');
+
+// -------------ROUTING-----------------
+
+// router for signup
+app.use('/signup', Signup);
+
+// ------------MIDDLEWARE---------------
 
 
 // path to root client files
@@ -39,15 +45,7 @@ app.use(bodyParser.json());
 app.use(express.static(CLIENT));
 
 
-// ROUTING
-
-// router for signup
-app.use('/signup', Signup);
-
-// router for -
-
-
-// ---------------AUTH-----------------
+// --------------AUTH-----------------
 
 app.get('/', (req, res) => {
 
@@ -57,66 +55,23 @@ app.get('/', (req, res) => {
 
 // '/auth/google' is endpoint for google sign in
 app.get('/auth/google',
-  passport.authenticate('google', { scope: ['email'] })
+  passport.authenticate('google', { scope: ['email', 'profile'] })
 );
 
-// '/google/callback' is for redirecting to protected endpoint or rejecting
+// 'auth/google/callback' endpoint is for redirecting after sign in attempt
 app.get('/auth/google/callback',
   passport.authenticate('google', {
-    failureRedirect: '/auth/failure',
-    successRedirect: '/itineraries',
-  })
+    // failed sign-in takes user back to homepage
+    failureRedirect: '/'
+  }),
+  (req, res) => {
+    // successful sign-in takes user into protected
+    res.redirect('/itineraries')
+  }
 );
 
-// attempt to make ^^^ into a promise
-// app.get('/auth/google/callback', (req, res) => {
-//   return new Promise((resolve, reject) => {
-//     passport.authenticate('google', {
-//       failureRedirect: '/auth/failure',
-//       successRedirect: '/itineraries',
-//     }, (err, user) => {
-//       // console.log(err, ' - error');
-//       // console.log(user, ' - user');
-//       if (err) {
-//         reject(new Error('failed to redirect AUTH:', err))
-//       } else if (!user) {
-//         reject(new Error('user is not authenticated:', err))
-//       }
-//       resolve(() => {
-//         res.redirect('/itineraries');
-//       })
-//     })(req, res)
-//   })
-// });
 
-// app.get('/auth/google/callback', passport.authenticate('google', {failureRedirect: '/auth/failure'}),
-//   async (req, res) => {
-//     try {
-//       res.redirect('/itineraries')
-//     }
-//     catch(err) {
-//       console.log('anything');
-//       console.error('Failed to authenticate:', err);
-//     }
-//   }
-// )
-
-// app.get('/auth/google/callback',
-//   passport.authenticate('google', {
-//     failureRedirect: '/auth/failure'
-//   }),
-//   (req, res) => {
-//     console.log(req);
-//     res.redirect('/itineraries')
-//   }
-// );
-
-// endpoint for authenticate failure redirect
-app.get('/auth/failure', (req, res) => {
-  res.send('Something went wrong...')
-});
-
-// check if user is logged in
+// function to check if user is logged in
 function isLoggedIn(req, res, next){
   // if user is logged in, continue next, if not, 401 error
   req.user ? next() : res.send(401);
@@ -125,9 +80,12 @@ function isLoggedIn(req, res, next){
 // protected route once logged in successfully
 app.get('/itineraries', isLoggedIn, (req, res) => {
 
-  // this will serve the itineraries page that shows all itineraries the user has
+  // REPLACE w/ itineraries page
   res.send('Itineraries will show here!');
 });
+
+
+// ----------SERVER LISTEN---------------
 
 const port = 3000;
 
