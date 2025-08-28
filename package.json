@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yumejensen/greenfield-budget-planner.git"
+    "url": "git+https://github.com/4L00P/greenfield-budget-planner.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/yumejensen/greenfield-budget-planner/issues"
+    "url": "https://github.com/4L00P/greenfield-budget-planner.git/issues"
   },
-  "homepage": "https://github.com/yumejensen/greenfield-budget-planner#readme",
+  "homepage": "https://github.com/4L00P/greenfield-budget-planner.git#readme",
   "dependencies": {
     "body-parser": "^2.2.0",
     "dotenv": "^17.2.1",
