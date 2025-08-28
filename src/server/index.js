@@ -64,15 +64,19 @@ app.get('/auth/google',
 app.get('/google/callback', (req, res) => {
   return new Promise((resolve, reject) => {
     passport.authenticate('google', {
-      successRedirect: '/itineraries',
       failureRedirect: '/auth/failure',
+      successRedirect: '/itineraries',
     }, (err, user) => {
+      // console.log(err, ' - error');
+      // console.log(user, ' - user');
       if (err) {
         reject(new Error('failed to redirect AUTH:', err))
       } else if (!user) {
         reject(new Error('user is not authenticated:', err))
       }
-      resolve(user)
+      resolve(() => {
+        res.redirect('/itineraries');
+      })
     })(req, res)
   })
 });
