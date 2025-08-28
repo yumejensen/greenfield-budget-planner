@@ -18,7 +18,7 @@ app.use(session({
   resave: false,
   secret: 'secretcalifragilistic',
   saveUninitialized: false
-}))
+}));
 
 app.use(passport.initialize())
 app.use(passport.session())
@@ -55,7 +55,7 @@ app.get('/', (req, res) => {
   // res.send();
 });
 
-// '/auth/google' is endpoint for google sign in 
+// '/auth/google' is endpoint for google sign in
 app.get('/auth/google',
   passport.authenticate('google', { scope: ['email'] })
 );
@@ -89,27 +89,13 @@ app.get('/auth/google/callback',
 //   })
 // });
 
-// app.get('/auth/google/callback', async (req, res) => {
-
-//   const result = await passport.authenticate('google', {
-//     failureRedirect: '/auth/failure',
-//     successRedirect: '/itineraries',
-//   })
-
-//   try {
-//     result()
-//   }
-//   catch(err) {
-//     console.error('Failed to authenticate:', err);
-//   }
-// })
-
 // app.get('/auth/google/callback', passport.authenticate('google', {failureRedirect: '/auth/failure'}),
 //   async (req, res) => {
 //     try {
 //       res.redirect('/itineraries')
 //     }
 //     catch(err) {
+//       console.log('anything');
 //       console.error('Failed to authenticate:', err);
 //     }
 //   }
@@ -120,6 +106,7 @@ app.get('/auth/google/callback',
 //     failureRedirect: '/auth/failure'
 //   }),
 //   (req, res) => {
+//     console.log(req);
 //     res.redirect('/itineraries')
 //   }
 // );
