@@ -2,3 +2,5 @@ node_modules
 /dist
 .env
 package-lock.json
+# React Component Preview
+previewConfig.json
