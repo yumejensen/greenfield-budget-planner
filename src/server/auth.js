@@ -17,16 +17,18 @@ passport.use(new GoogleStrategy({
     // use findOneAndUpdate to initialize or create a user
     // takes in: what you're looking for (profile id), what needs to be updated, options: different filters
     User.findOneAndUpdate({ 
-      email: profile.email 
+      email: profile.email,
+      googleId: profile.id
     }, { 
-      email: profile.email 
+      email: profile.email,
+      googleId: profile.id
     }, { 
       new: true, upsert: true 
     })
     .then((profile) => {
-      console.log('hello - this is the then block in findOneAndUpdate');
-      console.log('profile is', profile)
-      done(profile);
+      // console.log('hello - this is the then block in findOneAndUpdate');
+      // console.log('profile is', profile)
+      done();
     })
     .catch((err) => {
       console.log('failed to find and update user PASSPORT:', err)
@@ -38,9 +40,12 @@ passport.use(new GoogleStrategy({
 passport.serializeUser(function(user, cb) {
   process.nextTick(function() {
     return cb(null, {
-      id: user.id,
-      username: user.username,
-      picture: user.picture
+      // id: user.id,
+      // username: user.username,
+      // picture: user.picture
+      email: user.email,
+      googleId: user.googleId,
+      id: user._id
     });
   });
 });
