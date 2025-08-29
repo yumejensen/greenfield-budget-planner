@@ -7,4 +7,6 @@ function Map(){
       Map Component goes here!
     </div>
   )
-}
+};
+
+export default Map;
