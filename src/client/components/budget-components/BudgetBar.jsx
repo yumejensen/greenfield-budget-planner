@@ -1,22 +1,19 @@
 import React from "react";
 import { useState } from "react";
+import { ProgressBar } from "react-bootstrap";
 
 // Malleable budget bar that can be used for total budget and daily budget
 function BudgetBar(props){
 
-  // state
-  const [budgetTotal, budgetProgress] = useState()
+  const { budgetTotal, budgetProgress, mainCurrency, foreignCurrency } = props;
 
-  // helper to move the progress in the bar
-
+  const percentage = () => {
+    return (100 * budgetProgress) / budgetTotal;
+  }
 
   // return with html
   return (
-    <div className='budget-bar'>
-      <div className='budget-progress'>
-        10%
-      </div>
-    </div>
+    <ProgressBar now={percentage()} label={`${budgetProgress} / ${budgetTotal}`}/>
   );
 }
 
