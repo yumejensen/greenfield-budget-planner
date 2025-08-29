@@ -1,14 +1,20 @@
 import React from 'react';
+import { useState } from "react";
 
 import AddTripButton from "./AddTripButton.jsx"
 import NewTripForm from "./NewTripForm.jsx"
+import ItineraryList from "./ItineraryList.jsx"
+import Itinerary from "./Itinerary.jsx"
 
-function newItinerary () {
+function NewTrip () {
   return (
     <div>
       <h1>
-        whats up
+
         <AddTripButton />
+        <NewTripForm />
+        <ItineraryList />
+        <Itinerary />
       </h1>
 
     </div>
@@ -16,4 +22,4 @@ function newItinerary () {
 }
 
 //export this component to be used.
-export default newItinerary;
+export default NewTrip;
