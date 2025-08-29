@@ -13,7 +13,7 @@ function BudgetBar(props){
 
   // return with html
   return (
-    <ProgressBar now={percentage()} label={`${budgetProgress} / ${budgetTotal}`}/>
+    <ProgressBar animated now={percentage()} label={`${budgetProgress} / ${budgetTotal}`}/>
   );
 }
 
