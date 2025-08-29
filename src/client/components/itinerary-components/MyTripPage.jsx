@@ -1,7 +1,7 @@
 import React from 'react';
 
-import AddTripButton from "/AddTripButton"
-import NewTripForm from "/NewTripForm"
+import AddTripButton from "./AddTripButton.jsx"
+import NewTripForm from "./NewTripForm.jsx"
 
 function newItinerary () {
   return (
@@ -9,7 +9,6 @@ function newItinerary () {
       <h1>
         whats up
         <AddTripButton />
-        <NewTripForm />
       </h1>
 
     </div>
