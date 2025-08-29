@@ -1,9 +1,12 @@
 import React from 'react';
+import Itinerary from "./Itinerary.jsx"
 
 function ItineraryList(){
   return (
     <div>
-      hey
+      <Itinerary />
+      <Itinerary />
+      <Itinerary />
     </div>
   )
 }
