@@ -36,12 +36,24 @@ If running successfully, server console shows:
     index.js - initializes the express app and middleware
 
 
-# NOTES FROM 8-27 4:45pm #
+# NOTES FROM 8-29 12pm #
 
-Continuing to set up passport, attempt to sign in is hitting the failure redirect
+Set up React router in src/client/index.jsx
 
-changed so far to try and make passport work: 
-- User schema has email instead of googleId
-- changed Authorized redirect URI (in google cloud project credentials) to http://localhost:3000/google/callback
-- changed the findOrCreate function from passport docs -> findOneAndUpdate mongoose Model method - added then and catch blocks and are calling done()
-- NOTE: attempt to sign in is hitting the then block of findOneAndUpdate but the authentication is redirecting to '/auth/failure'
+- imported createBrowserRouter and RouterProvider
+- const router holds all the routes
+- the routes go inside <RouterProvider/>
+- we are rendering the <RouterProvider/>
+
+Created a default Template component
+- use the template to be a placeholder for future routes
+- can be used to create a new component
+
+# RESOURCES #
+
+*Videos*
+React router:
+- https://youtu.be/c02YoWR9gSY
+
+
+*Docs*
