@@ -20,6 +20,7 @@ const router = createBrowserRouter([
 
 const app = createRoot(document.getElementById('app'))
 
+// add header and footer into here?
 app.render(
   <StrictMode>
     <RouterProvider router={router} />
