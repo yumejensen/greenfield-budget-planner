@@ -18,7 +18,7 @@ import BudgetBar from "./components/budget-components/BudgetBar.jsx"
 const router = createBrowserRouter([
   {path: '/', element: <Signin />},
   {path: '/dashboard', element: <Dashboard />},
-  {path: '/itineraries', element: <newItinerary />},
+  {path: '/itineraries', element: <NewTrip />},
   {path: '/event', element: <EventList />},
   {path: '/map', element: <Map/>},
   {path: '/budget', element: <BudgetBar />},
