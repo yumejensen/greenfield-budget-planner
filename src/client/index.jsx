@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // IMPORT COMPONENTS
 import Template from "./components/TemplateComponent.jsx";
+import Navigation from "./components/NavBar.jsx";
 import App from "./components/App.jsx";
 import Signin from "./components/Signin.jsx";
 import Dashboard from "./components/Dashboard.jsx";
@@ -30,6 +31,7 @@ const app = createRoot(document.getElementById('app'))
 // add header and footer into here?
 app.render(
   <StrictMode>
+    <Navigation />
     <RouterProvider router={router} />
   </StrictMode>
 );
