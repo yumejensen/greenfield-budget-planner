@@ -81,7 +81,7 @@ function isLoggedIn(req, res, next){
 app.get('/itineraries', isLoggedIn, (req, res) => {
 
   // REPLACE w/ itineraries page
-  res.send('Itineraries will show here!');
+  res.status('Itineraries will show here!');
 });
 
 
