@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import React from "react";
 import "../../style.css"
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router";
 
 // IMPORT COMPONENTS
 import Template from "./components/TemplateComponent.jsx";
@@ -15,23 +15,19 @@ import EventList from "./components/event-components/EventList.jsx";
 import Map from "./components/map-components/map.jsx";
 import BudgetBar from "./components/budget-components/BudgetBar.jsx"
 
-const router = createBrowserRouter([
-  {path: '/', element: <Signin />},
-  {path: '/dashboard', element: <Dashboard />},
-  {path: '/itineraries', element: <NewTrip />},
-  {path: '/event', element: <EventList />},
-  {path: '/map', element: <Map/>},
-  {path: '/budget', element: <BudgetBar />},
-  {path: '*', element: <Template defaultProp={'404'}/>},
-  
-])
-
 const app = createRoot(document.getElementById('app'))
 
 // add header and footer into here?
 app.render(
-  <StrictMode>
+  <BrowserRouter>
     <Navigation />
-    <RouterProvider router={router} />
-  </StrictMode>
+    <Routes>
+      <Route path='/' element={<Signin />} />
+      <Route path='dashboard' element={<Dashboard />} />
+      <Route path='itineraries' element={<NewTrip />} />
+      <Route path='event' element={<EventList />} />
+      <Route path='map' element={<Map/>} />
+      <Route path='budget' element={<BudgetBar />} />
+    </Routes>
+  </BrowserRouter>
 );
