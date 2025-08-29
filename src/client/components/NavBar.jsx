@@ -29,6 +29,12 @@ function Navigation() {
         </Container>
       </Navbar>
       <br />
+      <Navbar className="bg-body-tertiary">
+        <Container>
+          <Navbar.Brand href="/budget">Budget link</Navbar.Brand>
+        </Container>
+      </Navbar>
+      <br />
     </>
   );
 }
