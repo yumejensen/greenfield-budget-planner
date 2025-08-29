@@ -10,7 +10,7 @@ import Navigation from "./components/NavBar.jsx";
 import App from "./components/App.jsx";
 import Signin from "./components/Signin.jsx";
 import Dashboard from "./components/Dashboard.jsx";
-import newItinerary from "./components/itinerary-components/MyTripPage.jsx";
+import NewTrip from "./components/itinerary-components/NewTrip.jsx";
 import EventList from "./components/event-components/EventList.jsx";
 import Map from "./components/map-components/map.jsx";
 import BudgetBar from "./components/budget-components/BudgetBar.jsx"
