@@ -1,40 +1,64 @@
 import React from "react";
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
+import { NavLink } from "react-router";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function Navigation() {
   return (
     <>
-      <Navbar className="bg-body-tertiary">
-        <Container>
-          <Navbar.Brand href="/dashboard">Dashboard link</Navbar.Brand>
-        </Container>
-      </Navbar>
-      <br />
-      <Navbar className="bg-body-tertiary">
-        <Container>
-          <Navbar.Brand href="/itineraries">Itineraries link</Navbar.Brand>
-        </Container>
-      </Navbar>
-      <br />
-      <Navbar className="bg-body-tertiary">
-        <Container>
-          <Navbar.Brand href="/event">Event link</Navbar.Brand>
-        </Container>
-      </Navbar>
-      <br />
-      <Navbar className="bg-body-tertiary">
-        <Container>
-          <Navbar.Brand href="/map">Map link</Navbar.Brand>
-        </Container>
-      </Navbar>
-      <br />
-      <Navbar className="bg-body-tertiary">
-        <Container>
-          <Navbar.Brand href="/budget">Budget link</Navbar.Brand>
-        </Container>
-      </Navbar>
-      <br />
+      <Row md={5}>
+        <Navbar className="bg-body-tertiary">
+          <Container>
+            <Navbar.Brand>
+              <NavLink to="/dashboard">
+                Dashboard link
+              </NavLink>
+            </Navbar.Brand>
+          </Container>
+        </Navbar>
+
+        <Navbar className="bg-body-tertiary">
+          <Container>
+            <Navbar.Brand>
+              <NavLink to="/itineraries">
+                Itineraries link
+              </NavLink>
+            </Navbar.Brand>
+          </Container>
+        </Navbar>
+
+        <Navbar className="bg-body-tertiary">
+          <Container>
+            <Navbar.Brand>
+              <NavLink to="/event">
+                Event link
+              </NavLink>
+            </Navbar.Brand>
+          </Container>
+        </Navbar>
+
+        <Navbar className="bg-body-tertiary">
+          <Container>
+            <Navbar.Brand>
+              <NavLink to="/map">
+                Map link
+              </NavLink>
+            </Navbar.Brand>
+          </Container>
+        </Navbar>
+
+        <Navbar className="bg-body-tertiary">
+          <Container>
+            <Navbar.Brand>
+              <NavLink to="/budget">
+                Budget link
+              </NavLink>
+            </Navbar.Brand>
+          </Container>
+        </Navbar>
+      </Row>
     </>
   );
 }
