@@ -1,21 +1,34 @@
 import React from 'react';
 import { useState } from "react";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
-const NewTripForm = (props) => {
-
-  // props
-  const { children = 'default' } = props
-
-  // state can go here if needed
-
-  // any helpers needed
-
-  // return with html
+function NewTripForm() {
   return (
-    <div>
-      This is a {children} component
-    </div>
-  )
+    <Form>
+
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>New Trip</Form.Label>
+        <Form.Control type="email" placeholder="Enter email" />
+        <Form.Text className="text-muted">
+          We'll never share your email with anyone else.
+        </Form.Text>
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control type="password" placeholder="Password" />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Check type="checkbox" label="Check me out" />
+      </Form.Group>
+
+      <Button variant="primary" type="submit">
+        Add New Trip
+      </Button>
+    </Form>
+  );
 }
 
 export default NewTripForm;

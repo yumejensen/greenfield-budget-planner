@@ -2,9 +2,9 @@ import React from 'react';
 
 function Itinerary(){
   return (
-    <div>
-      hey
-    </div>
+    <li>
+      Here is one Itinerary
+    </li>
   )
 }
 export default Itinerary;

@@ -7,15 +7,15 @@ import ItineraryList from "./ItineraryList.jsx"
 import Itinerary from "./Itinerary.jsx"
 
 function NewTrip () {
+  //setting up state for the trips and for the new trip form
+  
+
   return (
     <div>
-      <h1>
-
         <AddTripButton />
         <NewTripForm />
         <ItineraryList />
         <Itinerary />
-      </h1>
 
     </div>
   )
