@@ -1,5 +1,4 @@
 import React from 'react'
-import { AccordionBody } from 'react-bootstrap';
 import Accordion from 'react-bootstrap/Accordion';
 import ListGroup from 'react-bootstrap/ListGroup';
 
