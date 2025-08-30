@@ -5,7 +5,7 @@ const userSchema = new Schema({
 
   email: String,
   googleId: String,
-  // itineraries : [{type: Schema.Types.ObjectId, ref: 'Itinerary'}]
+  trips : [{type: Schema.Types.ObjectId, ref: 'Trip'}]
 });
 
 module.exports.userSchema = userSchema;
