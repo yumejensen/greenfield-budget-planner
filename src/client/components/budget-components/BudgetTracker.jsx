@@ -7,6 +7,7 @@ import BudgetBar from "./BudgetBar.jsx";
 import AddTransaction from "./AddTransaction.jsx";
 import Transactions from "./Transactions.jsx";
 import CurrencyDropDown from "./CurrencyDropDown.jsx";
+import CurrencyConversion from "./CurrencyConversion.jsx";
 
 function BudgetTracker(){
 
@@ -22,6 +23,7 @@ function BudgetTracker(){
   return (
     <div>
       <h1>Budget Tracker</h1>
+      <CurrencyConversion />
       <CurrencyDropDown />
       <BudgetBar />
       <AddTransaction />
