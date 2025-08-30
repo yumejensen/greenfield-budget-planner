@@ -1,39 +1,17 @@
 // React and Bootstrap
 import React from 'react'
-import Container from 'react-bootstrap/Container';
-import Card from 'react-bootstrap/Card';
-import { CardGroup } from 'react-bootstrap';
 
 // Components
 import Event from './Event.jsx'
-import CreateEvent from './CreateEvent.jsx'
-import EventCalendar from './EventCalendar.jsx'
+
 
 function EventList() {
   return (
-    <CardGroup>
-
-      <Card border="primary" style={{ width: '30rem' }}>
-        <Card.Header>
-          DAY 1 EVENTS
-        </Card.Header>
-        <Card.Body>
-          <Event />
-        <Card.Header>
-          ADD AN EVENT
-        </Card.Header>
-          <CreateEvent />
-        </Card.Body>
-      </Card>
-
-        <Card border="primary" style={{ width: '30rem' }}>
-          <Container>
-            <EventCalendar />
-          </Container>
-        </Card>
-
-
-    </CardGroup>
+    <>
+      <Event />
+      <Event />
+      <Event />
+    </>
   );
 }
 
