@@ -37,6 +37,7 @@ app.use('/signup', Signup);
 
 // path to root client files
 const CLIENT = path.resolve(__dirname, '../../dist');
+const HTML = path.resolve(__dirname, '../../dist/index.html');
 
 // parsing
 app.use(bodyParser.json());
@@ -79,11 +80,24 @@ function isLoggedIn(req, res, next){
 
 // protected route once logged in successfully
 app.get('/itineraries', isLoggedIn, (req, res) => {
-
   // REPLACE w/ itineraries page
   res.send('Itineraries will show here!');
 });
 
+
+// ----------CATCH ALL ---------------
+
+// also works with app.all
+// the '/{*any}' appears to be a path pattern from express
+app.get('/{*any}', function(req, res) {
+  // send the index.html inside dist folder
+  res.sendFile(HTML, function(err) {
+    // handle errors, send 500
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
 
 // ----------SERVER LISTEN---------------
 
