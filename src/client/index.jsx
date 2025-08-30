@@ -14,7 +14,7 @@ import Dashboard from "./components/Dashboard.jsx";
 import NewTrip from "./components/itinerary-components/NewTrip.jsx";
 import EventList from "./components/event-components/EventList.jsx";
 import Map from "./components/map-components/map.jsx";
-import BudgetBar from "./components/budget-components/BudgetBar.jsx"
+import BudgetTracker from "./components/budget-components/BudgetTracker.jsx"
 
 // make an element to protect the inner elements
 const PrivateRoutes = () => {
@@ -39,7 +39,7 @@ app.render(
         <Route path='itineraries' element={<NewTrip />} />
         <Route path='event' element={<EventList />} />
         <Route path='map' element={<Map/>} />
-        <Route path='budget' element={<BudgetBar />} />
+        <Route path='budget' element={<BudgetTracker />} />
       </Route>
 
       <Route path="*" element={<p>There is nothing here: 404!</p>} />

@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 
 // import other react components
-import Transaction from "./Transaction";
+import Transaction from "./Transaction.jsx";
 
 const Transactions = () => {
 
