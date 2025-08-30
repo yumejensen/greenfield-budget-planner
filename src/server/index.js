@@ -26,11 +26,13 @@ require('./auth');
 // ----------IMPORT ROUTES--------------
 // signup route
 const { Signup } = require('./routes/signup');
+const { Currency } = require('./api/currency-conversion.js')
 
 // -------------ROUTING-----------------
 
 // router for signup
 app.use('/signup', Signup);
+app.use('/api/currency', Currency);
 
 // ------------MIDDLEWARE---------------
 
