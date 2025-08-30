@@ -7,7 +7,7 @@ import { Card, Form, Row, Col, Button } from 'react-bootstrap';
 const CurrencyConversion = (props) => {
 
   // currency selector values
-  let [fromCurrency, setFromCurrency] = useState('');
+  let [fromCurrency, setFromCurrency] = useState('USD');
   let [toCurrency, setToCurrency] = useState('');
 
   let [amount, setAmount] = useState(0);
@@ -37,11 +37,13 @@ const CurrencyConversion = (props) => {
   // send GET to server with needed values for API
   const handleConversion = () => {
 
-    axios.get('/api/currency/conversion', {
-      from: fromCurrency,
-      to: toCurrency,
-      amount: amount
-    })
+    axios.get(`/api/currency/conversion:${fromCurrency}&:${toCurrency}&:${amount}`)
+      .then((data) => {
+        setAmount(data);
+      })
+      .catch((err) => {
+        console.error('Conversion request failed: CLIENT:', err);
+      });
   };
 
   // return with html
@@ -86,7 +88,7 @@ const CurrencyConversion = (props) => {
               <Form.Control placeholder="00.00" type="number" onChange={handleAmountChange}/>
             </Col>
             <Col>
-              <Button variant="outline-primary" onSubmit={handleSubmit}>
+              <Button variant="outline-primary" onClick={handleSubmit}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-arrow-right" viewBox="0 0 16 16">
                   <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
                 </svg>
