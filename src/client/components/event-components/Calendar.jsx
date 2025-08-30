@@ -1,12 +1,13 @@
 import React from 'react'
-import Container from 'react-bootstrap/Container';
 
-function Calendar() {
+
+function Calendar(){
   return (
-    <Container>
-        Calendar goes here
-    </Container>
-  );
+    <div>
+      
+    </div>
+  )
 }
+
 
 export default Calendar;

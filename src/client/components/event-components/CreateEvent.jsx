@@ -8,7 +8,6 @@ import Col from 'react-bootstrap/Col';
 function CreateEvent() {
   return (
     <Container fluid>
-      <Row> EVENT FORM </Row>
     
       <Col xs={6}>
         <Form>
