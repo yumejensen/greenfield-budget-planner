@@ -19,22 +19,18 @@ const CurrencyConversion = (props) => {
 
   // handler for selecting
   const handleChangeFrom = (e) => {
-    console.log(e.target.value);
     setFromCurrency(e.target.value);
   };
 
   const handleChangeTo = (e) => {
-    console.log(e.target.value);
     setToCurrency(e.target.value);
   };
 
   const handleAmountChange = (e) => {
-    console.log(e.target.value);
     setAmount(e.target.value);
   };
 
   const handleSubmit = () => {
-    console.log(fromCurrency, toCurrency, amount);
     handleConversion();
   };
 
@@ -43,7 +39,6 @@ const CurrencyConversion = (props) => {
 
     axios.get(`/api/currency/conversion:${fromCurrency}&:${toCurrency}&:${amount}`)
       .then((data) => {
-        console.log(data);
         setAmount(data);
       })
       .catch((err) => {
