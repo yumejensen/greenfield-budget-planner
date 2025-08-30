@@ -3,11 +3,11 @@ import Itinerary from "./Itinerary.jsx"
 
 function ItineraryList(){
   return (
-    <div>
+    <ul>
       <Itinerary />
       <Itinerary />
       <Itinerary />
-    </div>
+    </ul>
   )
 }
 export default ItineraryList;

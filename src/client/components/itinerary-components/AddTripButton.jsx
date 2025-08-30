@@ -1,10 +1,12 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 
 
-function AddTripButton(){
+
+function AddTripButton() {
   return (
     <div>
-      hey
+      <Button variant="primary">Primary</Button>
     </div>
   )
 }
