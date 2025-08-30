@@ -42,7 +42,7 @@ function AddTransaction(props){
     <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Transaction Amount: </Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
+        <Form.Control type="number" placeholder="0.00"/>
       </Form.Group>
 
       <ButtonGroup className="mb-2">
@@ -64,7 +64,7 @@ function AddTransaction(props){
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Transaction Note: </Form.Label>
-        <Form.Control type="password" placeholder="Password" />
+        <Form.Control type="details" placeholder="optional" />
       </Form.Group>
 
       <Button variant="primary" type="submit">
