@@ -29,7 +29,10 @@ const app = createRoot(document.getElementById('app'))
 // add header and footer into here?
 app.render(
   <BrowserRouter>
+
     <Navigation />
+    <br></br>
+
     <Routes>
 
       <Route path='/' element={<Signin />} />
@@ -45,5 +48,6 @@ app.render(
       <Route path="*" element={<p>There is nothing here: 404!</p>} />
 
     </Routes>
+    
   </BrowserRouter>
 );

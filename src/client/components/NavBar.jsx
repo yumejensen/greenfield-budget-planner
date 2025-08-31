@@ -1,65 +1,41 @@
 import React from "react";
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
+import { Nav } from "react-bootstrap";
 import { NavLink } from "react-router";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 function Navigation() {
   return (
-    <>
-      <Row md={5}>
-        <Navbar className="bg-body-tertiary">
+        <Navbar expand="sm" className="navbar">
           <Container>
-            <Navbar.Brand>
+
               <NavLink to="/dashboard">
-                Dashboard link
+                <Navbar.Text >Dashboard</Navbar.Text>
               </NavLink>
-            </Navbar.Brand>
-          </Container>
-        </Navbar>
-
-        <Navbar className="bg-body-tertiary">
-          <Container>
-            <Navbar.Brand>
+     
               <NavLink to="/itineraries">
-                Itineraries link
+                <Navbar.Text>Itineraries</Navbar.Text>
               </NavLink>
-            </Navbar.Brand>
-          </Container>
-        </Navbar>
-
-        <Navbar className="bg-body-tertiary">
-          <Container>
-            <Navbar.Brand>
+   
               <NavLink to="/event">
-                Event link
+                <Navbar.Text>Events</Navbar.Text>
               </NavLink>
-            </Navbar.Brand>
-          </Container>
-        </Navbar>
-
-        <Navbar className="bg-body-tertiary">
-          <Container>
-            <Navbar.Brand>
+   
               <NavLink to="/map">
-                Map link
+                <Navbar.Text>Map</Navbar.Text>
               </NavLink>
-            </Navbar.Brand>
+      
+              <NavLink to="/budget">
+                <Navbar.Text>Budget</Navbar.Text>
+              </NavLink>
+          
+              <Navbar.Text> Travel Chum </Navbar.Text>
+       
           </Container>
         </Navbar>
 
-        <Navbar className="bg-body-tertiary">
-          <Container>
-            <Navbar.Brand>
-              <NavLink to="/budget">
-                Budget link
-              </NavLink>
-            </Navbar.Brand>
-          </Container>
-        </Navbar>
-      </Row>
-    </>
   );
 }
 
