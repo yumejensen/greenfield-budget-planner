@@ -1,14 +1,15 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Container from 'react-bootstrap/Container';
-import Col from 'react-bootstrap/Col';
+import Accordion from 'react-bootstrap/Accordion';
 
 function CreateEvent() {
   return (
-    <Container fluid>
-    
-      <Col xs={6}>
+    <Accordion>
+      <Accordion.Item eventKey="0">
+        <Accordion.Header>Create Event</Accordion.Header>
+        <Accordion.Body>
+
         <Form>
           <Form.Group className="mb-3" controlId="eventInput">
             <Form.Label>Event Title</Form.Label>
@@ -34,9 +35,10 @@ function CreateEvent() {
             Create Event
           </Button>
         </Form>
-      </Col>
-      
-    </Container>
+
+        </Accordion.Body>
+      </Accordion.Item>
+    </Accordion>
   );
 }
 

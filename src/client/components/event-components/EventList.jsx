@@ -9,8 +9,6 @@ function EventList() {
   return (
     <>
       <Event />
-      <Event />
-      <Event />
     </>
   );
 }

@@ -12,20 +12,22 @@ import EventCalendar from './EventCalendar.jsx'
 
 function EventPage() {
   return (
+    
     <CardGroup>
+      
 
       <Card border="primary" style={{ width: '30rem' }}>
-        <Card.Header>
-          DAY 1 EVENTS
-        </Card.Header>
+      <Card.Header>
+        DAY 1 EVENTS
+      </Card.Header>
         <Card.Body>
-          <EventList />
-
-        <Card.Header> 
-          ADD AN EVENT
-        </Card.Header>
           <CreateEvent />
         </Card.Body>
+   
+        <Card.Body>
+          <EventList />
+        </Card.Body>
+
       </Card>
 
         <Card border="primary" style={{ width: '30rem' }}>
