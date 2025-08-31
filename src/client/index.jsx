@@ -13,7 +13,7 @@ import Signin from "./components/Signin.jsx";
 import Dashboard from "./components/Dashboard.jsx";
 import NewTrip from "./components/itinerary-components/NewTrip.jsx";
 import EventPage from "./components/event-components/EventPage.jsx";
-import Map from "./components/map-components/map.jsx";
+import Map from "./components/map-components/Map.jsx";
 import BudgetTracker from "./components/budget-components/BudgetTracker.jsx"
 
 // make an element to protect the inner elements
