@@ -6,6 +6,7 @@ const tripSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User'},
     // trip to events is a 1:n 
     events : [{type: Schema.Types.ObjectId, ref: 'Event'}],
+    POIs : [{type: Schema.Types.ObjectId, ref: 'POIs'}],
     title: String,
     start: Date,
     end: Date,
