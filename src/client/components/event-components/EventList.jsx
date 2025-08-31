@@ -5,14 +5,13 @@ import React from 'react'
 import Event from './Event.jsx'
 
 
-function EventList() {
+export default function EventList() {
   return (
     <>
+    <h5> TODAY&apos;S EVENTS </h5>
       <Event />
     </>
   );
 }
 
 
-
-export default EventList;
