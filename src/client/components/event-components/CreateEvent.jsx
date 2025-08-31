@@ -36,7 +36,7 @@ export default function CreateEvent() {
             <Form.Control type="number" placeholder="Ex: $30.00" />
           </Form.Group>
             
-          <Button variant="primary" type="submit">
+          <Button className="buttons" type="submit">
             Add to List
           </Button>
         </Form>
