@@ -5,6 +5,9 @@ const DATABASE = 'travel-planner';
 // SCHEMA IMPORTS
 const { userSchema } = require('./Schemas/user.js')
 const { transactionSchema } = require('./Schemas/transaction.js')
+const { pointOfInterestSchema } = require('./Schemas/pointOfInterest.js')
+const { tripSchema } = require('./Schemas/trip.js')
+const { eventSchema } = require('./Schemas/event.js')
 
 mongoose.connect(`mongodb://localhost:27017/${DATABASE}`)
   .then(()=> {
@@ -18,6 +21,9 @@ mongoose.connect(`mongodb://localhost:27017/${DATABASE}`)
 // MODEL CREATION
 const User = mongoose.model('User', userSchema);
 const Transaction = mongoose.model('Budget', transactionSchema);
+const POI = mongoose.model('POI', pointOfInterestSchema);
+const Trip = mongoose.model('Trip', tripSchema)
+const Event = mongoose.model('Event', eventSchema)
 
 
 // TEST CREATE TO ADD USER
@@ -31,4 +37,7 @@ const Transaction = mongoose.model('Budget', transactionSchema);
 module.exports = {
   User,
   Transaction,
+  POI,
+  Trip,
+  Event
 };
