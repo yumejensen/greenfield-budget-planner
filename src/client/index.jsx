@@ -13,7 +13,7 @@ import Signin from "./components/Signin.jsx";
 import Dashboard from "./components/Dashboard.jsx";
 import NewTrip from "./components/itinerary-components/NewTrip.jsx";
 import EventPage from "./components/event-components/EventPage.jsx";
-import Map from "./components/map-components/Map.jsx";
+import MapPage from "./components/map-components/MapPage.jsx";
 import BudgetTracker from "./components/budget-components/BudgetTracker.jsx"
 
 // make an element to protect the inner elements
@@ -41,7 +41,7 @@ app.render(
         <Route path='dashboard' element={<Dashboard />} />
         <Route path='itineraries' element={<NewTrip />} />
         <Route path='event' element={<EventPage />} />
-        <Route path='map' element={<Map/>} />
+        <Route path='map' element={<MapPage />} />
         <Route path='budget' element={<BudgetTracker />} />
       </Route>
 
