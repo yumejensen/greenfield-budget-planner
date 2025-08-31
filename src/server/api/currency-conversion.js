@@ -40,12 +40,12 @@ Currency.get('/conversion:from&:to&:amount', (req, res) => {
   const { from, to, amount } = req.params;
   getCurrencyConversion(from, to, amount)
     .then((data) => {
-      console.log(data);
-      res.status(200).send(data.response.value)
+      // console.log(data);
+      res.status(200).send(data)
     })
     .catch((err) => {
       console.error('Failed to GET from Conversion API: SERVER:', err);
-      res.status(500).send('oops something went wrong')
+      res.status(500).send('oops something went wrong', err)
     })
 });
 
