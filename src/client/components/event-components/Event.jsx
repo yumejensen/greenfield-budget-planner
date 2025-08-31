@@ -2,11 +2,12 @@ import React from 'react'
 import Accordion from 'react-bootstrap/Accordion';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-function Event() {
+export default function Event() {
+  
   return (
     <Accordion defaultActiveKey="0" flush>
       <Accordion.Item eventKey="0">
-        <Accordion.Header>10:00am Museum</Accordion.Header>
+        <Accordion.Header>[TIME] [EVENT TITLE]</Accordion.Header>
         <Accordion.Body>
 
           <ListGroup>
@@ -20,5 +21,3 @@ function Event() {
     </Accordion>
   );
 }
-
-export default Event;

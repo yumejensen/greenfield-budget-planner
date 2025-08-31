@@ -1,43 +1,49 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Container from 'react-bootstrap/Container';
-import Col from 'react-bootstrap/Col';
+import Accordion from 'react-bootstrap/Accordion';
 
-function CreateEvent() {
+export default function CreateEvent() {
   return (
-    <Container fluid>
-    
-      <Col xs={6}>
+    <Accordion>
+      <Accordion.Item eventKey="0">
+        <Accordion.Header>Create an Event</Accordion.Header>
+        <Accordion.Body>
+
         <Form>
           <Form.Group className="mb-3" controlId="eventInput">
             <Form.Label>Event Title</Form.Label>
-            <Form.Control type="email" placeholder="Ex: Breakfast" />
+            <Form.Control type="text" placeholder="Ex: Breakfast" />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="timeInput">
+            <Form.Label>Start Time</Form.Label>
+            <Form.Control type="number" placeholder="Ex: 10:00" />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="locationInput">
             <Form.Label>Location</Form.Label>
-            <Form.Control type="password" placeholder="Ex: Maple Cafe" />
+            <Form.Control type="text" placeholder="Ex: Maple Cafe" />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="descriptionInput">
             <Form.Label>Description</Form.Label>
-            <Form.Control type="password" placeholder="Ex: Meet with Dave" />
+            <Form.Control as="textarea" rows={2} placeholder="Ex: Meet with Dave" />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="costInput">
             <Form.Label>Estimated Cost</Form.Label>
-            <Form.Control type="password" placeholder="Ex: $30.00" />
+            <Form.Control type="number" placeholder="Ex: $30.00" />
           </Form.Group>
             
-          <Button variant="primary" type="submit">
-            Create Event
+          <Button className="buttons" type="submit">
+            Add to List
           </Button>
         </Form>
-      </Col>
-      
-    </Container>
+
+        </Accordion.Body>
+      </Accordion.Item>
+    </Accordion>
   );
 }
 
-export default CreateEvent;
