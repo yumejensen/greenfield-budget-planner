@@ -92,7 +92,18 @@ const transactionsNewOrleans = [
 ];
 
 const transactionsTokyo = [
-
+  {
+    amount: 1500,
+    currencyName: 'JPY',
+    details: 'Lunch at Chef Mickey',
+    createdAt: '2025/12/12 12:45'
+  },
+  {
+    amount: 3000,
+    currencyName: 'JPY',
+    details: 'Mickey ears',
+    createdAt: '2025/12/12 14:13'
+  }
 ];
 
 module.exports = {

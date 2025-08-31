@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import { Card, CardGroup } from "react-bootstrap";
+
 import axios from "axios";
 
 // import other react components
@@ -22,12 +24,25 @@ function BudgetTracker(){
   // return with html
   return (
     <div>
-      <h1>Budget Tracker</h1>
-      <CurrencyConversion />
-      <CurrencyDropDown />
+
       <BudgetBar />
-      <AddTransaction />
-      <Transactions />
+      <br />
+      <CardGroup >
+        <Card style={{ width: '20rem' }}>
+          <Card.Header><h2>Currency Tools</h2></Card.Header>
+          <Card.Body>
+            <CurrencyConversion />
+            <AddTransaction />
+          </Card.Body>
+        </Card>
+        <Card>
+          <Card.Header><h2>Transactions</h2></Card.Header>
+          <Card.Body>
+            <Transactions />
+          </Card.Body>
+        </Card>
+      </CardGroup>
+
     </div>
   )
 }
