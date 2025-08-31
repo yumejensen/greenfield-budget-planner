@@ -2,19 +2,19 @@ import React from "react";
 import { useState } from "react";
 import { Button, ButtonGroup, ToggleButton, Form } from "react-bootstrap";
 
+import { tripsSample } from '../../sample-data/sample-data.js'
+
 function AddTransaction(props){
 
   // destructure props
-  let { mainCurrency, foreignCurrency } = props;
+  let { nativeCurrency, foreignCurrency } = props;
 
-  // currencies for testing
-  mainCurrency = '$';
-  foreignCurrency = '¥';
+  nativeCurrency = tripsSample[1].nativeCurrency;
+  foreignCurrency = tripsSample[1].foreignCurrency;
 
   // transaction states
   const [transactionAmount, setTransactionAmount] = useState();
   const [transactionDetails, setTransactionDetails] = useState();
-  const [validated, setValidated] = useState(false);
 
   // button states
   const [checked, setChecked] = useState(false);
@@ -22,7 +22,7 @@ function AddTransaction(props){
 
   // radio values for currency selector buttons
   const radios = [
-    {name: mainCurrency, value: '1'},
+    {name: nativeCurrency, value: '1'},
     {name: foreignCurrency, value: '2'}
   ];
 
