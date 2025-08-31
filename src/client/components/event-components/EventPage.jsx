@@ -10,35 +10,35 @@ import CreateEvent from './CreateEvent.jsx'
 import EventCalendar from './EventCalendar.jsx'
 
 
-function EventPage() {
-  return (
-    <CardGroup>
+export default function EventPage() {
 
-      <Card border="primary" style={{ width: '30rem' }}>
-        <Card.Header>
-          DAY 1 EVENTS
-        </Card.Header>
+
+  return (
+    
+    <CardGroup>
+      
+      <Card border="primary" style={{ width: '25rem' }}>
+      <Card.Header>
+        <h4>[TRIP TITLE] [DAY X]</h4>
+      </Card.Header>
+
+        <Card.Body>
+          <CreateEvent />
+        </Card.Body>
+   
         <Card.Body>
           <EventList />
-
-        <Card.Header> 
-          ADD AN EVENT
-        </Card.Header>
-          <CreateEvent />
         </Card.Body>
       </Card>
 
-        <Card border="primary" style={{ width: '30rem' }}>
+        <Card border="primary" style={{ width: '25rem' }}>
           <Container>
+            <br></br>
             <EventCalendar />
           </Container>
         </Card>
-
 
     </CardGroup>
   );
 }
 
-
-
-export default EventPage;
