@@ -19,9 +19,9 @@ function Signin(props){
         </Row>
         <Row>
           <a href='/auth/google'>
-            <Button variant="primary"
+            <Button
               type="button" 
-              className="btn btn-outline-info" 
+              className="buttons" 
               onClick={() => {
                 userAuth();
               }}>

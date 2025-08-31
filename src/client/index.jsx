@@ -12,7 +12,7 @@ import App from "./components/App.jsx";
 import Signin from "./components/Signin.jsx";
 import Dashboard from "./components/Dashboard.jsx";
 import NewTrip from "./components/itinerary-components/NewTrip.jsx";
-import EventList from "./components/event-components/EventList.jsx";
+import EventPage from "./components/event-components/EventPage.jsx";
 import Map from "./components/map-components/map.jsx";
 import BudgetTracker from "./components/budget-components/BudgetTracker.jsx"
 
@@ -29,7 +29,10 @@ const app = createRoot(document.getElementById('app'))
 // add header and footer into here?
 app.render(
   <BrowserRouter>
+
     <Navigation />
+    <br></br>
+
     <Routes>
 
       <Route path='/' element={<Signin />} />
@@ -37,7 +40,7 @@ app.render(
       <Route element={<PrivateRoutes/>}>
         <Route path='dashboard' element={<Dashboard />} />
         <Route path='itineraries' element={<NewTrip />} />
-        <Route path='event' element={<EventList />} />
+        <Route path='event' element={<EventPage />} />
         <Route path='map' element={<Map/>} />
         <Route path='budget' element={<BudgetTracker />} />
       </Route>
@@ -45,5 +48,6 @@ app.render(
       <Route path="*" element={<p>There is nothing here: 404!</p>} />
 
     </Routes>
+    
   </BrowserRouter>
 );
