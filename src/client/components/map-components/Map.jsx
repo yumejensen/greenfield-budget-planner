@@ -6,6 +6,7 @@ import mapboxgl from "mapbox-gl";
 const MAPBOX_API_TOKEN = "pk.eyJ1Ijoiam9lc3BhZiIsImEiOiJjbWJwZzd4M2UwNGZtMnhvZmxzMzd0YzM4In0.cghf9WgnsnrcBinMF4xBSg"
 
 function Map(props) {
+  // use to remove map when clicking away
   const mapRef = useRef();
   const mapContainerRef = useRef();
   const markerRef = useRef();
