@@ -7,8 +7,10 @@ const Map = Router();
 
 
 Map.get('/', (req, res) => {
-  console.log('POI query');
-  console.log(req.user);
+  if (!req.user || !req.user.id) {
+    console.error('no user');
+    return res.status(401).json({ error: 'log in, bud' });
+  }
   POI.find({ userid: req.user.id })
     .then((pois) => {
       const clean = pois.map((poi) => {

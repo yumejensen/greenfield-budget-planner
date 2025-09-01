@@ -5,10 +5,26 @@ import mapboxgl from "mapbox-gl";
 
 const MAPBOX_API_TOKEN = "pk.eyJ1Ijoiam9lc3BhZiIsImEiOiJjbWJwZzd4M2UwNGZtMnhvZmxzMzd0YzM4In0.cghf9WgnsnrcBinMF4xBSg"
 
-function Map() {
+function Map(props) {
   const mapRef = useRef();
   const mapContainerRef = useRef();
-  const markerRef = useRef();
+  // const markerRef = useRef();
+
+  // const { markers } = props
+
+  // markers.current.forEach((marker) => {
+  //   const el = document.createElement('div');
+  //   el.className = 'marker';
+  //   el.style.width = '30px';
+  //   el.style.height = '30px';
+  //   el.style.backgroundSize = '100%';
+  //   el.title = marker.name;
+
+  //   const pinMarker = new mapboxgl.Marker(el)
+  //     .setLngLat(marker.coords)
+  //     .addTo(mapRef.current);
+  //     // markerRef.current = pinMarker
+  // });
 
   // get coords when map is doubled clicked
   const onDblClick = (event) => {
@@ -26,6 +42,10 @@ function Map() {
       // disable default map zoom on double click
       doubleClickZoom: false
     });
+
+    if(props.onMapLoad) {
+      props.onMapLoad(mapRef.current);
+    }
 
     // add marker to map on double click
     mapRef.current.on('dblclick', onDblClick);
