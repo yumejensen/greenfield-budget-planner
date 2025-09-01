@@ -6,9 +6,10 @@ import mapboxgl from "mapbox-gl";
 const MAPBOX_API_TOKEN = "pk.eyJ1Ijoiam9lc3BhZiIsImEiOiJjbWJwZzd4M2UwNGZtMnhvZmxzMzd0YzM4In0.cghf9WgnsnrcBinMF4xBSg"
 
 function Map(props) {
+  // use to remove map when clicking away
   const mapRef = useRef();
   const mapContainerRef = useRef();
-  // const markerRef = useRef();
+  const markerRef = useRef();
 
   // const { markers } = props
 
@@ -30,6 +31,7 @@ function Map(props) {
   const onDblClick = (event) => {
     const coords = [event.lngLat.lng, event.lngLat.lat]
     console.log('dblClicked at: ', coords)
+    props.addPin(coords)
   };
 
   useEffect(() => {
@@ -63,7 +65,7 @@ function Map(props) {
 
     return (
     <>
-      <div id='map-container' ref={mapContainerRef}/>
+      <div id='map-container' ref={mapContainerRef} style={{width: '80vh', height: '60 vh'}}/>
     </>
   )
 }

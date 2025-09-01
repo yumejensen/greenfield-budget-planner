@@ -63,12 +63,23 @@ const MapPage = (props) => {
       });
   };
 
+  const addPin = (pinCoords) => {
+
+    axios.post('/api/map', { name: 'clicky', coords: pinCoords }, { withCredentials: true })
+      .then((res) => {
+        fetchMapData();
+      })
+      .catch((err) => {
+        console.error('Error fetching map data:', err);
+      });
+  };
+
   return (
     <div>
       This is the Map Page
       <button onClick={sampleMapData}>Add Sample Map Data</button>
       <button onClick={fetchMapData}>Fetch Map Data</button>
-      <Map onMapLoad={handleMapLoad}/>
+      <Map onMapLoad={handleMapLoad} addPin={addPin}/>
     </div>
   )
 }
