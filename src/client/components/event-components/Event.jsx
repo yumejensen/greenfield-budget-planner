@@ -2,18 +2,17 @@ import React from 'react'
 import Accordion from 'react-bootstrap/Accordion';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-export default function Event() {
-  
+export default function Event({event}) {
+  console.log(event)
   return (
     <Accordion defaultActiveKey="0" flush>
       <Accordion.Item eventKey="0">
-        <Accordion.Header>[TIME] [EVENT TITLE]</Accordion.Header>
+        <Accordion.Header>{event.time} {event.title}</Accordion.Header>
         <Accordion.Body>
 
           <ListGroup>
-            <ListGroup.Item>Location: NOMA</ListGroup.Item>
-            <ListGroup.Item>Description: See new exhibit and then eat beignets</ListGroup.Item>
-            <ListGroup.Item>Estimated Cost: $35.00</ListGroup.Item>
+            <ListGroup.Item>Location: {event.location}</ListGroup.Item>
+            <ListGroup.Item>{event.description}</ListGroup.Item>
           </ListGroup>
     
         </Accordion.Body>

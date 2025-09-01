@@ -4,6 +4,16 @@ import Form from 'react-bootstrap/Form';
 import Accordion from 'react-bootstrap/Accordion';
 
 export default function CreateEvent() {
+  
+  // update state with changes from the form
+  
+  // handleChange to detect inputs from the form + update state
+  const handleChange = (e) => {
+    
+  }
+
+  // add the event to the db on clicking the 'Add to List' button
+
   return (
     <Accordion>
       <Accordion.Item eventKey="0">
@@ -29,11 +39,6 @@ export default function CreateEvent() {
           <Form.Group className="mb-3" controlId="descriptionInput">
             <Form.Label>Description</Form.Label>
             <Form.Control as="textarea" rows={2} placeholder="Ex: Meet with Dave" />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="costInput">
-            <Form.Label>Estimated Cost</Form.Label>
-            <Form.Control type="number" placeholder="Ex: $30.00" />
           </Form.Group>
             
           <Button className="buttons" type="submit">
