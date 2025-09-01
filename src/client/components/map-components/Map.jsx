@@ -65,7 +65,7 @@ function Map(props) {
 
     return (
     <>
-      <div id='map-container' ref={mapContainerRef} style={{width: '80vh', height: '60 vh'}}/>
+      <div id='map-container' ref={mapContainerRef} style={{width: '800px', height: '600px',}}/>
     </>
   )
 }
