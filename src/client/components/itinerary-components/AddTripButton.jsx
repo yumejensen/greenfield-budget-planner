@@ -8,4 +8,5 @@ function AddTripButton({ onClick }) {
     </Button>
   )
 }
+
 export default AddTripButton;
