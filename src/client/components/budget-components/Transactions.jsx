@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 
+import { transactionsNewOrleans, transactionsTokyo } from '../../sample-data/sample-data.js'
+
 // import other react components
 import Transaction from "./Transaction.jsx";
 
@@ -13,8 +15,9 @@ const Transactions = () => {
   // return with html
   return (
     <div>
-      This will populate with all transactions:
-      <Transaction />
+      { transactionsTokyo.map((transaction) => {
+        return <Transaction transaction={transaction} key={transaction.details}/>
+      }) }
     </div>
   )
 }
