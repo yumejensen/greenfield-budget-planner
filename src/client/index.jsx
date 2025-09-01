@@ -11,7 +11,7 @@ import Navigation from "./components/NavBar.jsx";
 import App from "./components/App.jsx";
 import Signin from "./components/Signin.jsx";
 import Dashboard from "./components/Dashboard.jsx";
-import NewTrip from "./components/itinerary-components/NewTrip.jsx";
+import NewTripPage from "./components/itinerary-components/NewTripPage.jsx";
 import EventPage from "./components/event-components/EventPage.jsx";
 import MapPage from "./components/map-components/MapPage.jsx";
 import BudgetTracker from "./components/budget-components/BudgetTracker.jsx"
@@ -39,7 +39,7 @@ app.render(
 
       <Route element={<PrivateRoutes/>}>
         <Route path='dashboard' element={<Dashboard />} />
-        <Route path='itineraries' element={<NewTrip />} />
+        <Route path='itineraries' element={<NewTripPage />} />
         <Route path='event' element={<EventPage />} />
         <Route path='map' element={<MapPage />} />
         <Route path='budget' element={<BudgetTracker />} />
