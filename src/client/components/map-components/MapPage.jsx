@@ -31,8 +31,9 @@ const MapPage = (props) => {
     pois.forEach((poi) => {
       const el = document.createElement('div');
       el.className = 'marker';
-      el.style.width = '30px';
-      el.style.height = '30px';
+      // el.style.width = '30px';
+      // el.style.height = '30px';
+      el.style.margin = '0px';
       el.title = poi.name;
 
       const pinMarker = new mapboxgl.Marker(el)
@@ -77,8 +78,8 @@ const MapPage = (props) => {
   return (
     <div>
       This is the Map Page
-      <button onClick={sampleMapData}>Add Sample Map Data</button>
-      <button onClick={fetchMapData}>Fetch Map Data</button>
+      {/* <button onClick={sampleMapData}>Add Sample Map Data</button>
+      <button onClick={fetchMapData}>Fetch Map Data</button> */}
       <Map onMapLoad={handleMapLoad} addPin={addPin}/>
     </div>
   )
