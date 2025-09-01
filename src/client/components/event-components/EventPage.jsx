@@ -1,5 +1,6 @@
 // React and Bootstrap
 import React from 'react'
+import { useState } from 'react'
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
@@ -10,12 +11,16 @@ import CreateEvent from './CreateEvent.jsx'
 import EventCalendar from './EventCalendar.jsx'
 
 // sample data
-import trip from './sample-data-events.js'
+import tokyoTrip from '../../sample-data/sample-data-tokyoTrip.js'
 
 export default function EventPage() {
 
-  // pull from db for state
-  // pass down events data into eventlist
+  // let [events, setEvents] = useState([]);
+  // // pass down events data into eventlist
+  
+  // const getEvents = () => {
+  //   // pull events array from db and update events state
+  // }
 
   return (
     
@@ -23,7 +28,7 @@ export default function EventPage() {
       
       <Card border="dark" style={{ width: '25rem' }}>
         <Card.Header>
-          <h4> {trip.title} </h4>
+          <h4> {tokyoTrip.title} </h4>
         </Card.Header>
 
         <Card.Body>
@@ -31,7 +36,7 @@ export default function EventPage() {
         </Card.Body>
    
         <Card.Body>
-          <EventList events={trip.events}/>
+          <EventList events={tokyoTrip.events}/>
         </Card.Body>
       </Card>
 
