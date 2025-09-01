@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 // React and Bootstrap
 import React from 'react'
 import { useState } from 'react'
@@ -20,6 +22,9 @@ export default function EventPage() {
   
   // const getEvents = () => {
   //   // pull events array from db and update events state
+  //   axios.get('/api/events')
+  //   .then(() => {})
+  //   .catch(()=> {})
   // }
 
   return (

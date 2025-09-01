@@ -1,22 +1,19 @@
 const mongoose = require('mongoose');
 
 // Trip model from index.js
-const { Trip } = require('../index.js');
+const { Trip, Event } = require('../index.js');
+
 
 // -----------------HELPERS--------------------
 
-// get events from a trip
+// // get all events
+// const getEvents = () => {
+//     return Event.find({})
+//     .then((events) => {console.log('all events:', events)})
+//     .catch((err) => {console.log('could not get events', err)})
+// }
 
-const getTrips = () => {
-    
-}
+// // post an event to the db
+// const postEvents = () => {
 
-// const findUser = (user) => {
-
-//   return User
-//     .find({username: user})
-//     .sort()
-//     .limit(1);
-// };
-
-// module.exports.findUser = findUser;
+// }
