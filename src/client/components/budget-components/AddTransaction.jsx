@@ -67,7 +67,11 @@ function AddTransaction(props){
         <Form.Control type="details" placeholder="optional" />
       </Form.Group>
 
-      <Button variant="primary" type="submit">
+      <Button 
+        variant="primary" 
+        type="submit"
+        className="buttons"
+      >
         Add Transaction
       </Button>
     </Form>
