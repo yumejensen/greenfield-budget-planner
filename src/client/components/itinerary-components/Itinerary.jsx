@@ -1,10 +1,11 @@
 import React from 'react';
 
-function Itinerary(){
-  return (
-    <li>
-      Here is one Itinerary
-    </li>
+
+function Itinerary({trip}){
+  return(
+  <li>
+   Itinerary
+  </li>
   )
 }
 export default Itinerary;

@@ -23,18 +23,6 @@ app.use(passport.session())
 require('./auth');
 
 
-// ----------IMPORT ROUTES--------------
-// signup route
-const { Signup } = require('./routes/signup');
-const { Currency } = require('./api/currency-conversion.js')
-const { Events } = require('./api/events.js')
-
-// -------------ROUTING-----------------
-
-// router for signup
-app.use('/signup', Signup);
-app.use('/api/currency', Currency);
-app.use('/api/events', Events);
 
 // ------------MIDDLEWARE---------------
 
@@ -48,6 +36,26 @@ app.use(bodyParser.json());
 
 // serve static files from client
 app.use(express.static(CLIENT));
+
+
+// ----------IMPORT ROUTES--------------
+// signup route
+const { Signup } = require('./routes/signup');
+const { Currency } = require('./api/currency-conversion.js')
+const { Events } = require('./api/events.js')
+const { Map } = require('./api/map.js')
+const { Trips } = require('./api/trips.js')
+
+
+// -------------ROUTING-----------------
+
+// router for signup
+app.use('/signup', Signup);
+app.use('/api/currency', Currency);
+app.use('/api/events', Events);
+app.use('/api/map', Map);
+app.use('api/trips', Trips)
+
 
 
 // --------------AUTH-----------------
@@ -71,7 +79,7 @@ app.get('/auth/google/callback',
   }),
   (req, res) => {
     // successful sign-in takes user into protected
-    res.redirect('/itineraries')
+    res.redirect('http://localhost:3000/dashboard')
   }
 );
 
