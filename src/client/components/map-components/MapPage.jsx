@@ -4,7 +4,7 @@ import Map from "./Map.jsx"
 
 
 const MapPage = (props) => {
-
+  
   return (
     <div>
       This is the Map Page
