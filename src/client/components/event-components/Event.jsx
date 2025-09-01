@@ -3,7 +3,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 export default function Event({event}) {
-  console.log(event)
+  
   return (
     <Accordion defaultActiveKey="0" flush>
       <Accordion.Item eventKey="0">
