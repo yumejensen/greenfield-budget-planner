@@ -3,8 +3,8 @@ import Button from 'react-bootstrap/Button';
 
 function AddTripButton({ onClick }) {
   return (
-    <Button variant="AddTrip" className="mb-3" onClick={onClick}>
-      Add New Trip
+    <Button primary="AddTrip" onClick={onClick} className="mb-2">
+      Add A New Trip To Itinerary
     </Button>
   )
 }
