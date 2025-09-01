@@ -23,18 +23,18 @@ Events.get('/api/events', (req, res) => {
     });
 });
 
-// POST an event to the db
-Events.post('/api/events', (req, res) => {
-  Event.create({
+// // POST an event to the db
+// Events.post('/api/events', (req, res) => {
+//   Event.create({
 
-  })
-    .then(() => {
-      res.status(201);
-    })
-    .catch((err) => {
-      console.log('failed to post an event to db:', err);
-    });
-});
+//   })
+//     .then(() => {
+//       res.status(201);
+//     })
+//     .catch((err) => {
+//       console.log('failed to post an event to db:', err);
+//     });
+// });
 
 module.exports = {
   Events,
