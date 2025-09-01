@@ -9,27 +9,23 @@ require('dotenv').config();
 
 const { CURRENCY_API_KEY } = process.env;
 
+
 // ---------------ROUTER----------------
 
 const Currency = Router();
 
 // -------------HELPERS-----------------
 
-const getCurrencyConversion = (from, to, amount) => {
+// const getCurrencyConversion = (from, to, amount) => {
 
-  // FROM - origin currency (currency being used)
-  // TO - target currency (convert to this currency)
-  // AMOUNT - amount in original currency to convert to target currency
+//   // FROM - origin currency (currency being used)
+//   // TO - target currency (convert to this currency)
+//   // AMOUNT - amount in original currency to convert to target currency
 
-  return axios.get('https://api.currencybeacon.com/v1/convert', {
-    params: {
-      api_key: CURRENCY_API_KEY,
-      from: from,
-      to: to,
-      amount: amount,
-    }
-  })
-};
+//   const url = `https://api.currencybeacon.com/v1/convert?api_key=${CURRENCY_API_KEY}&from=${from}&to=${to}&amount=${amount}`;
+
+//   return axios.get(url);
+// };
 
 // ---------REQUEST HANDLING------------
 
@@ -37,16 +33,19 @@ const getCurrencyConversion = (from, to, amount) => {
 Currency.get('/conversion:from&:to&:amount', (req, res) => {
 
   // destructure params
-  const { from, to, amount } = req.params;
-  getCurrencyConversion(from, to, amount)
-    .then((data) => {
-      // console.log(data);
-      res.status(200).send(data)
+  let { from, to, amount } = req.params;
+
+  from = from.slice(1);
+  to = to.slice(1);
+  amount = amount.slice(1);
+
+  axios.get(`https://api.currencybeacon.com/v1/convert?api_key=${CURRENCY_API_KEY}&from=${from}&to=${to}&amount=${amount}`)
+    .then((conversion) => {
+      res.status(200).json(conversion.data.value)
     })
     .catch((err) => {
-      console.error('Failed to GET from Conversion API: SERVER:', err);
-      res.status(500).send('oops something went wrong', err)
-    })
+      console.error('Failed to GET conversion from API: Server', err);
+    });
 });
 
 module.exports = {
