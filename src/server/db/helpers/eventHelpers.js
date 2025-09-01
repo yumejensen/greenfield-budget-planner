@@ -5,7 +5,11 @@ const { Trip } = require('../index.js');
 
 // -----------------HELPERS--------------------
 
-// find user by name
+// get events from a trip
+
+const getTrips = () => {
+    
+}
 
 // const findUser = (user) => {
 
