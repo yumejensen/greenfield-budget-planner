@@ -5,11 +5,18 @@ import React from 'react'
 import Event from './Event.jsx'
 
 
-export default function EventList() {
+export default function EventList({events}) {
+
+  // event data passed down from eventpage gets mapped/ put into event
+
   return (
     <>
-    <h5> TODAY&apos;S EVENTS </h5>
-      <Event />
+      <h5> TODAY&apos;S EVENTS </h5>
+    {
+      events.map((event, index) => 
+        <Event key={index} event={event}/>
+      )
+    }
     </>
   );
 }
